@@ -24,20 +24,20 @@ labels: ["brief"]
 <!-- How you'll judge success — the bar for "yes, that's the feature I asked for." -->
 
 ## 🚫 Non-negotiables
-<!-- Hard lines the ticket MUST honor (product or technical). A cofounder can't silently override one —
+<!-- Hard lines the ticket MUST honor (product or technical). A Manager can't silently override one —
      changing a non-negotiable comes back to you. -->
 -
 
 ## 🧭 Technical steers (optional)
 <!-- You may have engineering suggestions up front. Put them here and tag each:
        [hard]       — a technical constraint the ticket must follow (a non-negotiable "how").
-       [preference] — a strong default; a cofounder may deviate WITH a documented reason, which
+       [preference] — a strong default; a Manager may deviate WITH a documented reason, which
                       /review-ticket surfaces for you to bless or veto.
-     Leave this empty to let your cofounders own the "how" entirely. -->
+     Leave this empty to let your Manager own the "how" entirely. -->
 -
 
 ## 🧊 Happy to defer
-<!-- What you're fine NOT doing now — stops the ticket over-scoping and tells the cofounder where the edges are. -->
+<!-- What you're fine NOT doing now — stops the ticket over-scoping and tells the Manager where the edges are. -->
 -
 
 ## 📎 References
@@ -45,6 +45,6 @@ labels: ["brief"]
 -
 
 ---
-**Next:** a cofounder runs **`/read-brief <this issue number>`** to absorb this and plan the build with Claude,
+**Next:** a Manager runs **`/read-brief <this issue number>`** to absorb this and plan the build with Claude,
 then **`/draft-ticket`** (which drafts against this brief and links back to it). You close the loop with
 **`/review-ticket <ticket#>`**.

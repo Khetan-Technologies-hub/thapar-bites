@@ -5,5 +5,5 @@ One Markdown report per completed ticket, generated from the **real git diff** b
 
 - **Filename:** `ticket-<issue-number>.md`
 - **Purpose:** a permanent, reviewable record of exactly what each ticket changed — the
-  bridge between the developer's Claude Code and the manager's review.
+  bridge between the developer's Claude Code and the Manager's review.
 - The PR template links to the matching report; `/manager-review` reads it during review.

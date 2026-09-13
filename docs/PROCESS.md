@@ -1,6 +1,6 @@
 # Team Process — How We Build with Claude Code
 
-This is the playbook for running this project. It's written so a **new teammate can read it once and run the whole pipeline.** The process lives **here and in the Humble Task Force Claude Code plugin — not in any one person's head.** Anyone who installs the plugin and clones the repo inherits it.
+This is the playbook for running this project. It's written so a **new teammate can read it once and run the whole pipeline.** The process lives **here and in the Khetan Tech Force Claude Code plugin — not in anyone's head.** Install the plugin, clone the repo, and you've inherited it.
 
 > **New here? Read this, then `docs/PRD.md` (the product) and `CLAUDE.md` (architecture).** That's enough to start.
 
@@ -41,7 +41,7 @@ Run **`/read-brief <brief#>`**. Claude gives a deep product walkthrough so you *
 
 ## 3. Drafting the ticket — Manager
 Run **`/draft-ticket`**. Claude drafts the technical ticket **against the brief**, interviews you for the developer-facing decisions (access, hosting, scope), stamps `Brief: #<n>`, and creates the issue.
-- **Definition of Ready:** runnable by a junior dev cold.
+- **Definition of Ready:** runnable by a junior developer cold.
 - **Honor the brief's non-negotiables** — don't silently override one; flag it back to the Product Owner.
 - **Secrets never go in tickets** — say *what* and *where*, never the value.
 
@@ -57,8 +57,12 @@ Run **`/handoff <issue#>`** — writes `handoffs/ticket-<#>.md` from the **real 
 ## 7. GATE 2 — Manager reviews the code
 Run **`/manager-review <PR#>`** — Claude checks the diff + handoff against the ticket's acceptance criteria and flags risks at `file:line`. Run the app yourself. Approve or request changes, then merge.
 
+## The bug loop
+- **Tester:** **`/report-bug <what went wrong>`** files a clean, labelled issue (platform + severity + any screenshot). No code touched.
+- **Developer:** **`/fetch-bug <issue#>`** validates the report against the real code, explains the root cause, proposes fix approaches, and implements the chosen one (no PR — the developer commits).
+
 ## Onboarding a new teammate (the whole point)
-1. Install the plugin: `/plugin marketplace add Humble-Coders/humble-task-force` then `/plugin install humble-task-force@humble-coders`.
+1. Install the plugin: `/plugin marketplace add Khetan-Technologies-hub/khetan-tech-force` then `/plugin install khetan-tech-force@khetan-technologies`.
 2. Get repo access; `gh auth login`.
 3. Read this file, `docs/PRD.md`, and `CLAUDE.md`.
 4. You now have the full pipeline — foundation to review. **Nothing is stored in a person; it's all in the plugin + the repo.**
