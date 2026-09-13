@@ -1,0 +1,59 @@
+# === Secrets & config (NEVER commit) ===
+google-services.json
+GoogleService-Info.plist
+**/google-services.json
+**/GoogleService-Info.plist
+*serviceAccount*.json
+.env
+.env.*
+!.env.example
+.firebaserc.local
+firebase-debug.log*
+firestore-debug.log*
+ui-debug.log*
+.runtimeconfig.json
+
+# === Kotlin / Gradle / KMP ===
+.gradle/
+build/
+**/build/
+!src/**/build/
+local.properties
+captures/
+.kotlin/
+*.hprof
+
+# === Android ===
+*.apk
+*.aab
+*.ap_
+*.dex
+release/
+
+# === iOS / Xcode ===
+xcuserdata/
+*.xcworkspace/xcuserdata/
+DerivedData/
+Pods/
+*.xcuserstate
+
+# === Node / Cloud Functions / Web ===
+node_modules/
+dist/
+build-web/
+coverage/
+*.log
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# === Firebase emulator ===
+.firebase/
+emulator-data/
+
+# === IDE / OS ===
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
