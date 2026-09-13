@@ -6,6 +6,8 @@ Add online payment and make the money safe: UPI via Razorpay at checkout, reliab
 ## 🧭 Context
 Razorpay + Cloud Functions, layered onto `placeOrder` (5a) and checkout (5b). Money is integer paise. Payments settle **vendor-direct** (PRD D1). Webhook is signature-verified and idempotent (`docs/FUNCTIONS.md` `razorpayWebhook`).
 
+**Multiplatform note:** there is no official Kotlin Multiplatform Razorpay SDK. The order-creation call and webhook are shared/server; the **checkout step is platform-specific** and must be wired via `expect/actual` in `shared/`: Android → Razorpay Android SDK; iOS → Razorpay iOS SDK; web → Razorpay Checkout.js. Keep the shared repository interface identical across all three so ViewModels stay platform-agnostic.
+
 ⚠️ **Gated by PRD Decision D1** — confirm the settlement model and that the platform can issue **refunds** on the vendor's Razorpay (Route / vendor keys) before building the refund path.
 
 ## 🔑 Access & prerequisites
@@ -19,7 +21,7 @@ Razorpay + Cloud Functions, layered onto `placeOrder` (5a) and checkout (5b). Mo
 - [ ] Handle the paid **"add more items"** case from 5b: recompute server-side and charge/authorize the delta (mechanism agreed with the Manager).
 
 ## 🎯 Acceptance Criteria
-- [ ] A student pays by UPI (test mode) and the order becomes `paid` only after the webhook confirms.
+- [ ] A student pays by UPI (test mode) on **Android, iOS, and web** and the order becomes `paid` only after the webhook confirms.
 - [ ] Cancelling a paid order in the hold window issues a Razorpay refund automatically; vendor rejection of a paid order does the same.
 - [ ] Webhook rejects bad signatures and is safe to receive twice (idempotent).
 - [ ] No secrets in the repo; all amounts integer paise.

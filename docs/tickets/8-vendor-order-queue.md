@@ -4,6 +4,8 @@
 The vendor side of the loop: a live queue of incoming orders that never gets missed, and one-tap progress through to delivery. A busy counter needs the next action to always be obvious.
 
 ## 🧭 Context
+**Platform: web only, by design** — the vendor works on a laptop/desktop browser (confirmed product decision). No vendor mobile app in v1.
+
 Vendor dashboard (React + TS) + Firestore listeners, calling `transitionOrder` (5a). Vendor sees only their own court's orders (rules from 5a/#2). Orders appear only **after** the 30s hold (5b). Delivery is closed by the vendor/staff (Brief #5).
 
 ## 🔑 Access & prerequisites

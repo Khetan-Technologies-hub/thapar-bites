@@ -12,14 +12,14 @@ Firebase Auth. Students log in with **Google Sign-In restricted to the `thapar.e
 - An admin account to test granting `vendor`/`admin` claims.
 
 ## ✅ Scope / What to build
-- [ ] Google Sign-In (thapar.edu-restricted) on mobile (shared + Compose) and web.
+- [ ] Google Sign-In (thapar.edu-restricted) on **all three student targets — Android, iOS, and web**. The sign-in trigger is platform-specific (Android Credential Manager / Google Sign-In, iOS Google Sign-In, web popup/redirect), wired via `expect/actual` in `shared/`; the resulting Firebase Auth session and claim handling are shared.
 - [ ] `onUserCreate` (Auth trigger): verify email domain, set default `student` claim, create `users/{uid}`.
 - [ ] `setUserRole` (admin-only callable): grant `vendor`/`admin` claims and link a court where relevant.
 - [ ] Firestore **security rules v1** implementing the role matrix in `docs/DATA_MODEL.md` §5.
 - [ ] Auth-gated navigation: signed-out → sign-in screen; signed-in → role-appropriate landing (student app vs vendor web).
 
 ## 🎯 Acceptance Criteria
-- [ ] A `@thapar.edu` account signs in on mobile **and** web, receives a `student` custom claim, and gets a `users/{uid}` doc.
+- [ ] A `@thapar.edu` account signs in on **Android, iOS, and web**, receives a `student` custom claim, and gets a `users/{uid}` doc.
 - [ ] A non-`thapar.edu` account is rejected (no access).
 - [ ] An admin can grant a `vendor` claim to a user via `setUserRole`.
 - [ ] Security rules (verified against the emulator) deny cross-role access — e.g. a student cannot write another user's doc or any court.

@@ -2,6 +2,8 @@
 Vendors need to set up their court — menu and settings — so students have something real to browse and order. This is the vendor-facing half of the catalog, on the web dashboard.
 
 ## 🧭 Context
+**Platform: web only, by design** — vendors manage their court on a laptop/desktop browser (confirmed product decision; not an omission). No vendor mobile app in v1.
+
 React + TypeScript vendor dashboard + Firestore + Storage. Vendor role comes from ticket 2. A vendor may only touch **their own court** (`courts/{courtId}.ownerUid == uid`). Data shapes in `docs/DATA_MODEL.md` §2 (`courts`, `courts/*/menuItems`). Menu/settings edits are safe direct client writes guarded by security rules (no money/state logic) — see `docs/FUNCTIONS.md` D-note.
 
 ## 🔑 Access & prerequisites
