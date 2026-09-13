@@ -15,7 +15,7 @@ Razorpay + Cloud Functions, layered onto `placeOrder` (5a) and checkout (5b). Mo
 ## ✅ Scope / What to build
 - [ ] UPI path in `placeOrder`: create a Razorpay order, write the order `paymentStatus: pending`, return the Razorpay handle to the client; client completes payment.
 - [ ] `razorpayWebhook`: verify signature, idempotently reconcile `payment.captured` → `paid` (and dispatch after the hold) / `payment.failed` → `failed`.
-- [ ] **Auto-refund** via a Cloud Function on: student cancel within the 30s hold (paid order), and vendor rejection of a paid order. Set `paymentStatus` accordingly.
+- [ ] **Auto-refund** via a Cloud Function on: student cancel within the 30s hold (paid order), vendor rejection of a paid order, and **vendor-didn't-accept auto-cancel** (#6 expiry). Set `paymentStatus` accordingly.
 - [ ] Handle the paid **"add more items"** case from 5b: recompute server-side and charge/authorize the delta (mechanism agreed with the Manager).
 
 ## 🎯 Acceptance Criteria

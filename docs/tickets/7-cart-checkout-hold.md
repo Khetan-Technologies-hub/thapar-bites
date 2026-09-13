@@ -12,7 +12,7 @@ Student app (Compose Multiplatform) + student web, driven by shared ViewModels c
 
 ## ✅ Scope / What to build
 - [ ] Cart scoped to one court; add/remove/qty; live subtotal; **min-order-value gate** with a clear "below ₹X for this court" message.
-- [ ] Checkout: pick a saved hostel address, choose a payment method from the **court's accepted set** (COD path live here; UPI wired in 5d).
+- [ ] Checkout: pick a saved hostel address (from the addresses feature — see Dependencies), with the default preselected; choose a payment method from the **court's accepted set** (COD path live here; UPI wired in 5d).
 - [ ] On confirm → order enters the **`Held`** state with a visible **30-second countdown**, during which the student can **Cancel** or **Add more items** (re-opens the cart, recomputes total server-side).
 - [ ] When the timer expires → order **dispatches** to the vendor (becomes visible/accept-able). Cancel in-window releases the order (and triggers refund in 5d for paid orders).
 - [ ] Loading / empty / error / disabled states throughout.
@@ -30,7 +30,7 @@ UI ticket — apply `templates/ui-standards.md`. Load-bearing: light + dark; edg
 - Razorpay online payment + refunds (5d). Vendor queue (5c). Post-dispatch tracking (5e).
 
 ## 🔗 Dependencies
-- Tickets 5a and #4.
+- Tickets 5a (#6), #4, and **#11 (saved delivery addresses)** — checkout needs an address to deliver to.
 
 ## 📚 References
 - PRD §5.1, `docs/ARCHITECTURE.md` §5, Brief #5 (30s hold), `templates/ui-standards.md`.

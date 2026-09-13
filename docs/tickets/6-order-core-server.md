@@ -15,11 +15,13 @@ Firebase Cloud Functions (TypeScript) + Firestore. Server is the source of truth
 - [ ] Order **state machine** in `shared/` (`Held/Placed → Accepted → Preparing → OutForDelivery → Delivered`, plus `Rejected`/`Cancelled`).
 - [ ] `placeOrder` callable (**COD path**): load court + menu (authoritative prices), reject if court closed/outside hours, reject if method not accepted, recompute subtotal/total, enforce `minOrderValue`, **snapshot prices**, write the order.
 - [ ] `transitionOrder` callable: validate the requested transition against the state machine **and** the caller's role before writing; append `statusHistory`.
+- [ ] **Unaccepted-order expiry:** if a dispatched order is not accepted by the vendor within the accept window (**default 5 minutes — confirm with PO; make it configurable**), auto-transition to `Cancelled` (reason: vendor didn't accept), triggering the refund hook (#9, for paid orders) and a student notification (#10). Implement as a scheduled/queued server check, not a client timer.
 - [ ] Security rules: deny client writes to `total`/`subtotal`/`status`/`paymentStatus`; students read own orders, vendors read own court's orders.
 
 ## 🎯 Acceptance Criteria
 - [ ] A COD order can be placed via `placeOrder` with server-computed totals (integer paise); a below-minimum or closed-court or wrong-method order is rejected.
 - [ ] Illegal transitions are rejected (e.g. student marking own order `Delivered`, or `Placed → Delivered`).
+- [ ] An order not accepted within the accept window auto-cancels (reason recorded), and the cancel fires the refund + notification hooks.
 - [ ] Prices on the order are snapshots — editing the menu afterward doesn't change a placed order.
 - [ ] Rules (verified on the emulator) block direct client writes to authoritative fields.
 - [ ] Unit tests cover the state machine and validation in `shared/`; function tests run against the emulator.
