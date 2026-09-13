@@ -77,12 +77,15 @@ docs/           PRD, architecture, data model, functions, setup, roadmap
 
 ## How we work (ticket workflow)
 
-This project is ticket-driven (Humble Task Force). Process detail lives in `docs/PROCESS.md` (created by `/setup-tickets`).
+This project is ticket-driven (Khetan Tech Force pipeline). Full playbook: `docs/PROCESS.md`. Three roles, two review gates.
 
-- `/draft-ticket <thing>` — draft a ticket that references this file + the PRD.
-- `/start-ticket` — build a ticket (reads context, plans, then codes).
-- `/handoff` — produce the handoff report from the real git diff.
-- `/manager-review` — review the PR against the ticket's acceptance criteria.
+- `/draft-brief <feature>` — Product Owner captures the what & why (creates a `brief` issue).
+- `/read-brief <#>` — Manager absorbs the brief and agrees a build plan.
+- `/draft-ticket <thing>` — Manager drafts a ticket that references this file + the PRD (stamps `Brief: #<n>`).
+- `/review-ticket <#>` — **Gate 1**: Product Owner signs off that the ticket delivers the brief.
+- `/start-ticket <#>` — Developer builds a ticket (reads context, walkthrough, plans, then codes).
+- `/handoff <#>` — produce the handoff report from the real git diff.
+- `/manager-review <PR#>` — **Gate 2**: review the PR against the ticket's acceptance criteria.
 
 Every change maps to a ticket. Tickets follow the phases in [docs/ROADMAP.md](docs/ROADMAP.md).
 
